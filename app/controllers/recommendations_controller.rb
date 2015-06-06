@@ -1,6 +1,6 @@
 class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
   # GET /recommendations
   # GET /recommendations.json
   def index
@@ -67,8 +67,9 @@ class RecommendationsController < ApplicationController
       @recommendation = Recommendation.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  protected
     def recommendation_params
-      params.require(:recommendation).permit(:location, :user_id, :details, :title)
+      params.require(:recommendation).permit(:title, :details, :address, :address_2,
+        :city, :state, :zip_code, :longitude, :latitude)
     end
 end

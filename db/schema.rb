@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150606192526) do
 
   # These are extensions that must be enabled in order to support this database
@@ -24,12 +25,18 @@ ActiveRecord::Schema.define(version: 20150606192526) do
   end
 
   create_table "recommendations", force: :cascade do |t|
-    t.string   "location"
     t.integer  "user_id"
     t.string   "details"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "address"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
   create_table "user_recommendations", force: :cascade do |t|

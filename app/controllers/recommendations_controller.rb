@@ -5,6 +5,10 @@ class RecommendationsController < ApplicationController
   # GET /recommendations.json
   def index
     @recommendations = Recommendation.all
+    respond_to do |format|
+      format.json {render json: @recommendations}
+      format.html {@recommendations}
+    end
   end
 
   # GET /recommendations/1

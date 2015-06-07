@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recommendations: Accept or Decline</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Friend</th>
+      <th>Recommendation</th>
+      <th>Location</th>
+      <th>Details</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accepts.each do |accept| %>
+      <tr>
+        <td><%= accept.recommendation.user_id %></td>
+        <td><%= accept.recommendation.title %></td>
+        <td><%= accept.recommendation.location %></td>
+        <td><%= accept.recommendation.details %></td>
+        <td><%= link_to 'Show', accept %></td>
+        <td><%= link_to 'Accept', user_recommendations_path(@user, accept.recommendation), method: :create, data: { confirm: 'accept added to your list!' } %></td>
+        <td><%= link_to 'Decline', accept_path(accept.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

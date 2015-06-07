@@ -60,8 +60,8 @@ class RecommendationsController < ApplicationController
   # DELETE /recommendations/1
   # DELETE /recommendations/1.json
   def destroy
-    binding.pry
     @recommendation.destroy
+
     redirect_to user_recommendations_path
   end
 

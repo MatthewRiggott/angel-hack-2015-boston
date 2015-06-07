@@ -17,16 +17,18 @@
 
   <tbody>
     <% @event_array.each do |event| %>
-      <tr>
-        <td><%= link_to event.title, event%></td>
-        <td><%= event.details %></td>
-        <td><%= event.address %></td>
-        <td><%= event.city %></td>
-        <td><%= event.state %></td>
-        <td><%= event.zip_code %></td>
-        <td><%= link_to 'Edit', edit_recommendation_path(event) %></td>
-        <td><%= link_to 'Delete', recommendation_path(event), method: :delete %></td>
-      </tr>
+      <% if !event.nil? %>
+        <tr>
+          <td><%= link_to event.title, event%></td>
+          <td><%= event.details %></td>
+          <td><%= event.address %></td>
+          <td><%= event.city %></td>
+          <td><%= event.state %></td>
+          <td><%= event.zip_code %></td>
+          <td><%= link_to 'Edit', edit_recommendation_path(event) %></td>
+          <td><%= button_to 'Delete', recommendation_path(event), method: :delete %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

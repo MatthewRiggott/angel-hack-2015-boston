@@ -29,9 +29,11 @@ class RecommendationsController < ApplicationController
   # POST /recommendations.json
   def create
     @recommendation = Recommendation.new(recommendation_params)
-
+    @recommendation.user = current_user
     respond_to do |format|
       if @recommendation.save
+        user_rec = UserRecommendation.new(user_id: @recommendation.user_id, recommendation_id: @recommendation.id )
+        user_rec.save
         format.html { redirect_to @recommendation, notice: 'Recommendation was successfully created.' }
         format.json { render :show, status: :created, location: @recommendation }
       else

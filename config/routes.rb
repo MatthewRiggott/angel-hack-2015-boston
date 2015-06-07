@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :recommendations
+  resources :user_recommendations
   root 'homes#index'
   get '/map', to:'recommendations#map'
 

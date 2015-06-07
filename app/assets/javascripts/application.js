@@ -30,7 +30,7 @@ $(function(){ $(document).foundation();
       var marker = L.marker([coordinatesArray[0],coordinatesArray[1]]);
       marker.addTo(map);
       var popup = '<div >'
-      popup += '<h1><a id="modalTitle" href="/events/' + data[i].id + '">' + data[i].title + '</a></h1>'
+      popup += '<h1><a id="modalTitle" href="/recommendations/' + data[i].id + '">' + data[i].title + '</a></h1>'
       popup += '</div>'
       marker.bindPopup(popup);
     }

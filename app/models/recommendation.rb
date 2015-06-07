@@ -1,4 +1,5 @@
 class Recommendation < ActiveRecord::Base
+  belongs_to :user
 	has_many :user_recommendations
 	has_many :accepts
 	has_many :users, through: :user_recommendations

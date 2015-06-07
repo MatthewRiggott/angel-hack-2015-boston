@@ -14,7 +14,9 @@
     </thead>
 
     <tbody>
+
       <% @accepts.each do |accept| %>
+
         <tr>
           <td><%= User.find(accept.recommendation.user_id).email %></td>
           <td><%= accept.recommendation.title %></td>

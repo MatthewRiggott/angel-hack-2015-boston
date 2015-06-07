@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
     email = auth.info.email if email_is_verified
     token = auth.credentials.token
     user = User.where(email: email).first if email
-    binding.pry
     if user.nil?
       user = User.new(
         first_name: auth.extra.raw_info.first_name,
@@ -28,7 +27,7 @@ class User < ActiveRecord::Base
       )
       user.save!
     end
-    add_friends
+    user.add_friends
     user
   end
 
@@ -40,8 +39,6 @@ class User < ActiveRecord::Base
     end
     return friends
   end
-
-  private
 
   def add_friends
     base_url = "https://graph.facebook.com/v2.0"

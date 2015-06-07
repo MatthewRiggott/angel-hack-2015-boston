@@ -1,4 +1,4 @@
-class UserRecommendationsController < ApplicationController  
+class UserRecommendationsController < ApplicationController
 	def create
 		@user = User.find(params["create_user_rec"]["user_id"])
 		@recommendation = Recommendation.find(params["create_user_rec"]["recommendation_id"])

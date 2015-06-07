@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :user_recommendation
+  has_many :user_recommendations
   has_many :accepts
   has_many :recommendations, through: :user_recommendations
 

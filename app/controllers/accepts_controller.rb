@@ -1,6 +1,6 @@
 class AcceptsController < ApplicationController
 	def index
-		@user = User.find_by_id(1)
+		@user = current_user
 		@accepts = @user.accepts
 	end
 

@@ -21,7 +21,7 @@
         <td><%= accept.recommendation.location %></td>
         <td><%= accept.recommendation.details %></td>
         <td><%= link_to 'More Info', accept %></td>
-        <td><%= link_to 'Accept', user_recommendations_path(@user, accept.recommendation), method: :create, data: { confirm: 'Recommendation added to your list!' } %></td>
+        <td><%= link_to 'Accept', user_recommendations_path(@user, accept.recommendation, create_user_rec: { user_id: @user.id, recommendation_id: accept.recommendation.id }), method: :create, data: { confirm: 'Recommendation added to your list!' } %></td>
         <td><%= link_to 'Decline', accept_path(accept.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

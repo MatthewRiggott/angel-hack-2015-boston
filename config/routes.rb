@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   resources :accepts, only: [:index, :destroy]
 
-  resources :user_recommendations, only: [:create]
+  resources :user_recommendations
 end

@@ -1,0 +1,19 @@
+body {
+  font-family: 'Petrona', serif;
+}
+
+a {
+  font-family: 'Petrona', serif;
+}
+
+h1 {
+  font-family: 'Petrona', serif;
+}
+
+td {
+  font-family: 'Petrona', serif;
+}
+
+.top-bar-section ul li > a {
+	font-family: 'Petrona', serif;
+}

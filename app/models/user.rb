@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
     email = auth.info.email if email_is_verified
     token = auth.credentials.token
     user = User.where(email: email).first if email
+    binding.pry
     if user.nil?
       user = User.new(
         first_name: auth.extra.raw_info.first_name,
@@ -22,10 +23,10 @@ class User < ActiveRecord::Base
         facebook_id: auth.extra.raw_info.id,
         token: token,
         email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-        password: Devise.friendly_token[0,20]
+        password: Devise.friendly_token[0,20],
+        photo: auth.info.image
       )
       user.save!
-      add_friends
     end
     add_friends
     user

@@ -1,35 +1,30 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+    <p>
+      <strong>Title:</strong>
+      <%= @recommendation.title %>
+    </p>
+    <p>
+      <strong>Details:</strong>
+      <%= @recommendation.details %>
+    </p>
+    <p>
+      <strong>Address:</strong>
+      <%= @recommendation.address %>
+    </p>
+    <p>
+      <strong>City:</strong>
+      <%= @recommendation.city %>
+    </p>
+    <p>
+      <strong>State:</strong>
+      <%= @recommendation.state %>
+    </p>
+    <p>
+      <strong>Zip Code:</strong>
+      <%= @recommendation.zip_code %>
+    </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @recommendation.address %>
-</p>
-<p>
-  <strong>City:</strong>
-  <%= @recommendation.city %>
-</p>
-<p>
-  <strong>State:</strong>
-  <%= @recommendation.state %>
-</p>
-<p>
-  <strong>Zip Code:</strong>
-  <%= @recommendation.zip_code %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= @recommendation.user_id %>
-</p>
-
-<p>
-  <strong>Details:</strong>
-  <%= @recommendation.details %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @recommendation.title %>
-</p>
-
-<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
-<%= link_to 'Back', recommendations_path %>
+    <%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+    <%= link_to 'Back', recommendations_path %>
+</div>

@@ -1,21 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Recommendations</h1>
 
 <table>
-<tr class="table-head">
-<td>Event Name</td>
-<td>Event Description</td>
-<td>Address</td>
-<td>City</td>
-<td>State</td>
-<td>Zip</td>
-</tr>
-<% @event_array.each do |event| %>
-<tr>
-<td><%= link_to event.title, event%></td>
-<td><%= event.details %></td>
-<td><%= event.address %></td>
-<td><%= event.city %></td>
-<td><%= event.state %></td>
-<td><%= event.zip_code %></td>
-</tr>
-<% end %>
+  <thead class="table-head">
+    <tr>
+      <th>Event Name</th>
+      <th>Event Description</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @event_array.each do |event| %>
+      <tr>
+        <td><%= link_to event.title, event%></td>
+        <td><%= event.details %></td>
+        <td><%= event.address %></td>
+        <td><%= event.city %></td>
+        <td><%= event.state %></td>
+        <td><%= event.zip_code %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+
+<%= link_to 'New Recommendation', new_recommendation_path %>

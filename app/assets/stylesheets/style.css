@@ -4,16 +4,58 @@ body {
 
 a {
   font-family: 'Petrona', serif;
+  font-size: 16px;
+  margin-left: 1rem;
+  padding: 14px;
+  color: white;
 }
 
-h1 {
-  font-family: 'Petrona', serif;
+a:hover {
+	background: #451A3E;
+}
+
+a:visited {
+	color: #3D7B80;
+}
+
+h1, h3 {
+	font-family: 'Petrona', serif;
+    margin-left: 1rem;
+}
+
+table {
+	margin-left: 1rem;
 }
 
 td {
-  font-family: 'Petrona', serif;
+	font-family: 'Petrona', serif;
+}
+
+.name h1 a {
+	font-size: 20px;
+}
+
+.name h1 a:hover {
+	background: #451A3E;
+}
+
+.top-bar {
+	background: #270A33;
 }
 
 .top-bar-section ul li > a {
 	font-family: 'Petrona', serif;
+	font-size: 16px;
+}
+
+.top-bar-section ul li {
+	background: #270A33;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+	background: #270A33;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+	background: #451A3E;
 }

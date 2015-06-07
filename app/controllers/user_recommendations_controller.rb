@@ -1,9 +1,10 @@
 class UserRecommendationsController < ApplicationController
 	def create
-		@user = User.find(params["create_user_rec"]["user_id"])
-		@recommendation = Recommendation.find(params["create_user_rec"]["recommendation_id"])
-		UserRecommendation.create(user_id: @user.id, recommendation_id: @recommendation.id)
-		UserRecommendation.delete_accept_record(@user, @recommendation)
+
+    accept = Accept.find(params["accept_id"])
+		UserRecommendation.create(user_id: current_user.id, recommendation_id: accept.recommendation.id)
+		accept.destroy
+
 		redirect_to accepts_path
 	end
 

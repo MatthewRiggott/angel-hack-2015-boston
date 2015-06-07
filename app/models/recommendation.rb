@@ -1,7 +1,7 @@
 class Recommendation < ActiveRecord::Base
-  belongs_to :user
-  has_many :accepts
-  has_many :user_recommendations
+	belongs_to :user_recommendation
+	has_many :accepts
+	has_many :users, through: :user_recommendations
 
   geocoded_by :full_street_address
 

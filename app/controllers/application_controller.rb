@@ -8,14 +8,14 @@ class ApplicationController < ActionController::Base
   private
 
   def verify_logged_in
-    # if we are not logging in or signing up and aren't signed up go to loginpage
-
-    if current_user.nil?
-      if params[:controller] != "devise/registrations" && params[:controller] != "devise/sessions"  && params[:controller] != "omniauth_callbacks"
+  	if current_user.nil?
+	  	if params[:controller] != "devise/registrations" &&
+	  		params[:controller] != "devise/sessions" &&
+	  		params[:controller] != "omniauth_callbacks" &&
+	  		params[:controller] != "homes"
         redirect_to new_user_session_path
-      end
+    	end
     end
   end
-  # For APIs, you may want to use :null_session instead.
 
 end

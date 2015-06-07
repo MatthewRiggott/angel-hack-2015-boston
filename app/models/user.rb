@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :user_recommendation
+  has_many :accepts
+  has_many :recommendations, through: :user_recommendations
+
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
 
@@ -48,9 +52,12 @@ class User < ActiveRecord::Base
     response["data"].each do |data|
       friend_id = data["id"]
       friend = User.find_by(facebook_id: friend_id)
-      friend1 = self.id < friend.id ? self : friend
-      friend2 = self.id > friend.id ? self : friend
-      Friend.find_or_create_by(friend1: friend1.id, friend2: friend2.id)
+      
+      if !friend.nil?
+        friend1 = self.id < friend.id ? self : friend
+        friend2 = self.id > friend.id ? self : friend
+        Friend.find_or_create_by(friend1: friend1.id, friend2: friend2.id)
+      end
     end
   end
 end

@@ -32,3 +32,7 @@
 .cookiemonster {
   height: 90%;
 }
+
+.table-head {
+  font-weight: bolder;
+}

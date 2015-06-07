@@ -13,11 +13,9 @@ class User < ActiveRecord::Base
 
     email_is_verified = auth.info.email && auth.info.verified
     email = auth.info.email if email_is_verified
-    binding.pry
     token = auth.credentials.token
     user = User.where(email: email).first if email
     if user.nil?
-      binding.pry
       user = User.new(
         first_name: auth.extra.raw_info.first_name,
         last_name: auth.extra.raw_info.last_name,
@@ -27,9 +25,34 @@ class User < ActiveRecord::Base
         password: Devise.friendly_token[0,20]
       )
       user.save!
+      add_friends
     end
-    user.update(token: token)
+    add_friends
     user
   end
 
+  def my_friends
+    test = Friend.where("friends.friend1 = ? OR friends.friend2 = ?", self.id, self.id)
+    friends = Array.new
+    (test.pluck(:friend1) + test.pluck(:friend2) - [self.id]).uniq.each do |friend|
+      friends << friend
+    end
+    return friends
+  end
+
+  private
+
+  def add_friends
+    base_url = "https://graph.facebook.com/v2.0"
+    access = "?access_token=#{self.token}"
+    response = HTTParty.get("#{base_url}/me/friends#{access}")
+    friends = []
+    response["data"].each do |data|
+      friend_id = data["id"]
+      friend = User.find_by(facebook_id: friend_id)
+      friend1 = self.id < friend.id ? self : friend
+      friend2 = self.id > friend.id ? self : friend
+      Friend.find_or_create_by(friend1: friend1.id, friend2: friend2.id)
+    end
+  end
 end

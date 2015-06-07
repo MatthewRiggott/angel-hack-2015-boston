@@ -6,8 +6,13 @@ class ApplicationController < ActionController::Base
   before_filter :verify_logged_in
 
   def verify_logged_in
-  	if params[:controller] != "devise/registrations" && params[:controller] != "devise/sessions" && params[:controller] != "omniauth_callbacks"
-       redirect_to new_user_session_path
+  	if current_user.nil?
+	  	if params[:controller] != "devise/registrations" &&
+	  		params[:controller] != "devise/sessions" &&
+	  		params[:controller] != "omniauth_callbacks" &&
+	  		params[:controller] != "homes"
+    	   redirect_to new_user_session_path
+    	end
     end
   end
 end

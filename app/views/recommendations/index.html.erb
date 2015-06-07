@@ -5,10 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Location</th>
       <th>User</th>
-      <th>Details</th>
       <th>Title</th>
+      <th>Details</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +15,9 @@
   <tbody>
     <% @recommendations.each do |recommendation| %>
       <tr>
-        <td><%= recommendation.location %></td>
         <td><%= recommendation.user_id %></td>
-        <td><%= recommendation.details %></td>
         <td><%= recommendation.title %></td>
+        <td><%= recommendation.details %></td>
         <td><%= link_to 'Show', recommendation %></td>
         <td><%= link_to 'Edit', edit_recommendation_path(recommendation) %></td>
         <td><%= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

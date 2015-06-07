@@ -1,1 +1,21 @@
-this shit
+
+<table>
+<tr class="table-head">
+<td>Event Name</td>
+<td>Event Description</td>
+<td>Address</td>
+<td>City</td>
+<td>State</td>
+<td>Zip</td>
+</tr>
+<% @event_array.each do |event| %>
+<tr>
+<td><%= link_to event.title, event%></td>
+<td><%= event.details %></td>
+<td><%= event.address %></td>
+<td><%= event.city %></td>
+<td><%= event.state %></td>
+<td><%= event.zip_code %></td>
+</tr>
+<% end %>
+</table>

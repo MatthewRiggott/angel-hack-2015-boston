@@ -24,7 +24,9 @@
 .cookie-monster {
 
   top: 0; right: 0; bottom: 0; left: 0;
-  border: 8px solid blue;
+  border-width: 8px;
+  border-color: #B1E6D1;
+  border-style: solid;
   height: 90%;
 
 }

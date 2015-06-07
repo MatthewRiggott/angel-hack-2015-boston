@@ -27,8 +27,18 @@ table {
 	margin-left: 1rem;
 }
 
+table thead tr th {
+	font-weight: bold;
+	font-size: 20px;
+}
+
 td {
 	font-family: 'Petrona', serif;
+}
+
+td a {
+	color: black;
+	font-weight: bold;
 }
 
 .name h1 a {

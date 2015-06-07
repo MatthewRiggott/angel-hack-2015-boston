@@ -2,6 +2,7 @@ class AcceptsController < ApplicationController
 	def index
 		@user = current_user
 		@accepts = @user.accepts
+
 	end
 
 	def destroy

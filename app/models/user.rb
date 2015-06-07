@@ -52,9 +52,12 @@ class User < ActiveRecord::Base
     response["data"].each do |data|
       friend_id = data["id"]
       friend = User.find_by(facebook_id: friend_id)
-      friend1 = self.id < friend.id ? self : friend
-      friend2 = self.id > friend.id ? self : friend
-      Friend.find_or_create_by(friend1: friend1.id, friend2: friend2.id)
+      
+      if !friend.nil?
+        friend1 = self.id < friend.id ? self : friend
+        friend2 = self.id > friend.id ? self : friend
+        Friend.find_or_create_by(friend1: friend1.id, friend2: friend2.id)
+      end
     end
   end
 end

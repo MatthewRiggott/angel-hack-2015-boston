@@ -15,7 +15,11 @@
  *= require foundation_and_overrides
 
  */
-
+.facebook {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .cookie-monster {
 

@@ -60,11 +60,9 @@ class RecommendationsController < ApplicationController
   # DELETE /recommendations/1
   # DELETE /recommendations/1.json
   def destroy
+    binding.pry
     @recommendation.destroy
-    respond_to do |format|
-      format.html { redirect_to recommendations_url, notice: 'Recommendation was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to user_recommendations_path
   end
 
   private

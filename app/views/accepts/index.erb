@@ -7,7 +7,6 @@
     <tr>
       <th>Friend</th>
       <th>Recommendation</th>
-      <th>Location</th>
       <th>Details</th>
       <th colspan="3"></th>
     </tr>
@@ -18,9 +17,8 @@
       <tr>
         <td><%= User.find(accept.recommendation.user_id).email %></td>
         <td><%= accept.recommendation.title %></td>
-        <td><%= accept.recommendation.location %></td>
         <td><%= accept.recommendation.details %></td>
-        <td><%= link_to 'More Info', accept %></td>
+        <td><%= link_to 'More Info', recommendation_path(accept.recommendation.id) %></td>
         <td><%= link_to 'Accept', user_recommendations_path(@user, accept.recommendation, create_user_rec: { user_id: @user.id, recommendation_id: accept.recommendation.id }), method: :create, data: { confirm: 'Recommendation added to your list!' } %></td>
         <td><%= link_to 'Decline', accept_path(accept.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

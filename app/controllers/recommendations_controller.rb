@@ -1,10 +1,14 @@
 class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
   # GET /recommendations
   # GET /recommendations.json
   def index
     @recommendations = Recommendation.all
+    respond_to do |format|
+      format.json {render json: @recommendations}
+      format.html {@recommendations}
+    end
   end
 
   # GET /recommendations/1
@@ -25,9 +29,11 @@ class RecommendationsController < ApplicationController
   # POST /recommendations.json
   def create
     @recommendation = Recommendation.new(recommendation_params)
-
+    @recommendation.user = current_user
     respond_to do |format|
       if @recommendation.save
+        user_rec = UserRecommendation.new(user_id: @recommendation.user_id, recommendation_id: @recommendation.id )
+        user_rec.save
         format.html { redirect_to @recommendation, notice: 'Recommendation was successfully created.' }
         format.json { render :show, status: :created, location: @recommendation }
       else
@@ -67,8 +73,9 @@ class RecommendationsController < ApplicationController
       @recommendation = Recommendation.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+  protected
     def recommendation_params
-      params.require(:recommendation).permit(:location, :user_id, :details, :title)
+      params.require(:recommendation).permit(:title, :details, :address, :address_2,
+        :city, :state, :zip_code, :longitude, :latitude)
     end
 end

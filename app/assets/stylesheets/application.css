@@ -15,3 +15,16 @@
  *= require foundation_and_overrides
 
  */
+
+
+.cookie-monster {
+
+  top: 0; right: 0; bottom: 0; left: 0;
+  border: 8px solid blue;
+  height: 90%;
+
+}
+
+.cookiemonster {
+  height: 90%;
+}

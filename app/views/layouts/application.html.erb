@@ -2,11 +2,15 @@
 <html>
 <head>
   <title>AngelHack2015Boston</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+  <link href: "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel: "stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -24,6 +28,15 @@
         <%- end -%>
       </ul>
     </section>
+
+    <nav class="sub-header">
+      <div class="row">
+        <div class="small-2 columns"><%= link_to 'Nav link 1', "javascript:void(0)" %></div>
+        <div class="small-2 columns"><%= link_to 'Nav link 2', "javascript:void(0)" %></div>
+        <div class="small-2 columns"><%= link_to 'Nav link 3', "javascript:void(0)" %></div>
+        <div class="small-2 columns end"><%= link_to 'Nav link 4', "javascript:void(0)" %></div>
+      </div>
+    </nav>
   </nav>
 
   <%- flash.each do |key, value| -%>
@@ -37,4 +50,6 @@
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
 </body>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.js"/>
 </html>

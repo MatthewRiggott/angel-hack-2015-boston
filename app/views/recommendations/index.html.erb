@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>User</th>
       <th>Title</th>
       <th>Details</th>
@@ -15,7 +16,9 @@
   <tbody>
     <% @recommendations.each do |recommendation| %>
       <tr>
-        <td><%= recommendation.user_id %></td>
+      <% binding.pry %>
+        <td><%= image_tag (recommendation.user.photo), alt: "Photo" %></td>
+        <td><%= recommendation.user.first_name %></td>
         <td><%= recommendation.title %></td>
         <td><%= recommendation.details %></td>
         <td><%= link_to 'Show', recommendation %></td>

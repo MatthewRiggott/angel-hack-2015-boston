@@ -5,6 +5,7 @@
 <table>
   <thead class="table-head">
     <tr>
+      <th></th>
       <th>Event Name</th>
       <th>Event Description</th>
       <th>Address</th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @event_array.each do |event| %>
       <tr>
+        <td><%= image_tag (event.user.photo), alt: "Photo"%> </td>
         <td><%= link_to event.title, event%></td>
         <td><%= event.details %></td>
         <td><%= event.address %></td>

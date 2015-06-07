@@ -17,16 +17,14 @@
     <tbody>
 
       <% @accepts.each do |accept| %>
-
         <tr>
-
           <td><%= image_tag User.find(accept.recommendation.user_id).photo, alt: "Photo" %></td>
           <td><%= User.find(accept.recommendation.user_id).first_name %></td>
           <td><%= accept.recommendation.title %></td>
           <td><%= accept.recommendation.details %></td>
           <td><%= link_to 'More Info', recommendation_path(accept.recommendation.id) %></td>
-          <td><%= link_to 'Accept', user_recommendations_path(@user, accept.recommendation, create_user_rec: { user_id: @user.id, recommendation_id: accept.recommendation.id }), method: :create, data: { confirm: 'Recommendation added to your list!' } %></td>
-          <td><%= link_to 'Decline', accept_path(accept.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= button_to 'Accept', { controller: :user_recommendations, action: :create, accept_id: accept.id  }, method: :post %></td>
+          <td><%= button_to 'Decline', accept_path(accept.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

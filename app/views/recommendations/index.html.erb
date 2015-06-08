@@ -14,14 +14,16 @@
 
   <tbody>
     <% @recommendations.each do |recommendation| %>
+      <% if !recommendation.nil? %>
       <tr>
         <td><%= recommendation.user_id %></td>
         <td><%= recommendation.title %></td>
         <td><%= recommendation.details %></td>
         <td><%= link_to 'Show', recommendation %></td>
         <td><%= link_to 'Edit', edit_recommendation_path(recommendation) %></td>
-        <td><%= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', recommendation, method: :delete, data: { confirm: 'Are you sure?' , class: "button"} %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

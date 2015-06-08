@@ -4,7 +4,7 @@
   <title>AngelHack2015Boston</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href='http://fonts.googleapis.com/css?family=Petrona' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
   <link href: "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel: "stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -32,7 +32,7 @@
     <nav class="sub-header">
       <div class="row">
         <div class="small-2 columns"><%= link_to "My List", user_recommendations_path  %></div>
-        <div class="small-2 columns"><%= link_to 'View Recommendations', accepts_path %></div>
+        <div class="small-3 columns"><%= link_to 'View Recommendations', accepts_path %></div>
         <div class="small-2 columns"><%= link_to "What's Nearby?", map_path %></div>
         <div class="small-2 columns end"><%= link_to 'View Friends', "javascript:void(0)" %></div>
       </div>
@@ -45,8 +45,13 @@
     </div>
   <%- end -%>
 
+<% if params["action"] != "map" %>
+  <div class="row">
+<% end %>
   <%= yield %>
-
+<% if params["action"] != "map" %>
+  </div>
+<% end %>
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
 </body>

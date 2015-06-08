@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Recommendations: Accept or Decline</h1>
-
+<hr>
 <% if @accepts.count > 0 %>
   <table>
     <thead>
@@ -17,15 +17,17 @@
     <tbody>
 
       <% @accepts.each do |accept| %>
+        <% if !accept.recommendation.nil? %>
         <tr>
           <td><%= image_tag User.find(accept.recommendation.user_id).photo, alt: "Photo" %></td>
           <td><%= User.find(accept.recommendation.user_id).first_name %></td>
           <td><%= accept.recommendation.title %></td>
           <td><%= accept.recommendation.details %></td>
-          <td><%= link_to 'More Info', recommendation_path(accept.recommendation.id) %></td>
-          <td><%= button_to 'Accept', { controller: :user_recommendations, action: :create, accept_id: accept.id  }, method: :post %></td>
-          <td><%= button_to 'Decline', accept_path(accept.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Info', recommendation_path(accept.recommendation.id) %></td>
+          <td><%= button_to 'Accept', { controller: :user_recommendations, action: :create, accept_id: accept.id  }, method: :post, class: "button" %></td>
+          <td><%= button_to 'Decline', accept_path(accept.id), class: "button", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

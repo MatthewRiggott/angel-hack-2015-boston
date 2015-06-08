@@ -13,7 +13,10 @@ class UserRecommendationsController < ApplicationController
     @userrecommendations = UserRecommendation.where(user_id: current_user.id)
 
     @userrecommendations.each do |element|
-      @event_array << element.recommendation
+
+      if !element.recommendation.nil?
+        @event_array << element.recommendation
+      end
     end
 
     respond_to do |format|

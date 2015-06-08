@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Recommendations</h1>
@@ -5,6 +6,7 @@
 <table>
   <thead class="table-head">
     <tr>
+      <th></th>
       <th>Event Name</th>
       <th>Event Description</th>
       <th>Address</th>
@@ -19,14 +21,14 @@
     <% @event_array.each do |event| %>
       <% if !event.nil? %>
         <tr>
+          <td><%= image_tag User.find(event.user_id).photo, alt: "Photo" %></td>
           <td><%= link_to event.title, event%></td>
           <td><%= event.details %></td>
           <td><%= event.address %></td>
           <td><%= event.city %></td>
           <td><%= event.state %></td>
           <td><%= event.zip_code %></td>
-          <td><%= link_to 'Edit', edit_recommendation_path(event) %></td>
-          <td><%= button_to 'Delete', recommendation_path(event), method: :delete %></td>
+         <td><%= button_to 'Delete', recommendation_path(event), method: :delete, class: "button" %></td>
         </tr>
       <% end %>
     <% end %>
@@ -34,3 +36,4 @@
 </table>
 
 <%= link_to 'New Recommendation', new_recommendation_path %>
+

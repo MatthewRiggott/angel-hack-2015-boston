@@ -15,6 +15,10 @@
  *= require foundation_and_overrides
 
  */
+ @import 'foundation-icons';
+ body {
+  background-color: #FFFAFA;
+ }
 .facebook {
   display: block;
   margin-left: auto;
@@ -24,20 +28,25 @@
 .cookie-monster {
   top: 0; right: 0; bottom: 0; left: 0;
   border-width: 8px;
-  border-color: #B1E6D1;
+  border-color: #FFCCCC;
   border-style: solid;
   height: 90%;
   font-size: 40px;
+  background-color: #FFCCCC;
 }
-
+.cmon {
+  padding-top: 50px;
+}
 .cookie-monster2 {
   padding: 50px;
   border-width: 8px;
-  border-color: #B1E6D1;
+  border-color: #FFCCCC;
   border-style: solid;
   height: 443px;
   font-size: 20px;
   line-height: 30px;
+  background-color: #FFCCCC;
+
 }
 
 .cookiemonster {

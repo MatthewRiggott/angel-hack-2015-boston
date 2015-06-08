@@ -1,9 +1,9 @@
 body {
-  font-family: 'Petrona', serif;
+  font-family: 'Roboto', serif;
 }
 
 a {
-  font-family: 'Petrona', serif;
+  font-family: 'Roboto', serif;
   font-size: 16px;
   margin-left: 1rem;
   padding: 14px;
@@ -11,7 +11,7 @@ a {
 }
 
 a:hover {
-	background: #451A3E;
+	background: #800000;
 }
 
 a:visited {
@@ -19,7 +19,7 @@ a:visited {
 }
 
 h1, h3 {
-	font-family: 'Petrona', serif;
+	font-family: 'Roboto', serif;
     margin-left: 1rem;
 }
 
@@ -33,7 +33,7 @@ table thead tr th {
 }
 
 td {
-	font-family: 'Petrona', serif;
+	font-family: 'Roboto', serif;
 }
 
 td a {
@@ -46,26 +46,26 @@ td a {
 }
 
 .name h1 a:hover {
-	background: #451A3E;
+	background: #800000;
 }
 
 .top-bar {
-	background: #270A33;
+	background: #990000;
 }
 
 .top-bar-section ul li > a {
-	font-family: 'Petrona', serif;
+	font-family: 'Roboto', serif;
 	font-size: 16px;
 }
 
 .top-bar-section ul li {
-	background: #270A33;
+	background: #990000;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
-	background: #270A33;
+	background: #990000;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
-	background: #451A3E;
+	background: #800000;
 }

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
+#ruby "2.0.0"
 gem 'geocoder'
 gem 'rails', '4.2.1'
 gem 'pg'
@@ -42,3 +42,4 @@ gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'

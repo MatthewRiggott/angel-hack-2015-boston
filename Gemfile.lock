@@ -77,6 +77,9 @@ GEM
       activesupport (>= 3.0.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foundation-rails (5.5.2.1)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -237,6 +240,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_girl
+  foundation-icons-sass-rails
   foundation-rails
   geocoder
   httparty

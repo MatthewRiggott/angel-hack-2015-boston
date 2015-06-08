@@ -12,5 +12,3 @@
 !/log/.keep
 /tmp
 .env
-Gemfile
-Gemfile.lock
